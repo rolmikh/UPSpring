@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновление роли</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<form th:method="POST" th:action="@{/Admin/RoleUpdate/{id}(id = ${roles.idRole})}" th:object="${roles}">
+    <table>
+        <tr>
+            <td> <input  type="hidden" id="idRole" name="idRole" th:field="*{idRole}"/>
+                <label for="nameRole">Название роли</label></td>
+            <td> <input type="text" th:field="*{nameRole}" id="nameRole" name="nameRole" /></td>
+        </tr>
+    </table>
+    <input type="submit" class="glow-button" value="Изменить"/>
+    <div th:if="${#fields.hasErrors('nameRole')}" th:errors="*{nameRole}">f</div>
+</form>
+</body>
+</html>

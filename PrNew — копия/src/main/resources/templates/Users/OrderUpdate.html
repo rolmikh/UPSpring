@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновление заказов</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<form th:method="POST" th:action="@{/Users/OrderUpdate/{id}(id = ${orders.idOrder})}" th:object="${orders}">
+    <table>
+        <tr>
+            <td> <input  type="hidden" id="idOrder" name="idOrder" th:field="*{idOrder}"/>
+                <label for="numberOrder">Номер заказа</label></td>
+            <td> <input type="text" th:field="*{numberOrder}" id="numberOrder" name="numberOrder" /></td>
+        </tr>
+        <tr>
+            <td> <label for="priceOrder">Стоимость заказа</label></td>
+            <td> <input type="text" th:field="*{priceOrder}" id="priceOrder" name="priceOrder" /></td>
+        </tr>
+        <tr>
+            <td> <label for="dateOrder">Дата заказа</label></td>
+            <td> <input type="date" th:field="*{dateOrder}" id="dateOrder" name="dateOrder" /></td>
+        </tr>
+        <tr>
+            <td> <label>Статус заказа</label></td>
+            <td>
+                <select name="nameStatusOrder">
+                    <div th:each="element: ${status}">
+                        <option th:text="${element.nameStatusOrder}"></option>
+                    </div>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> <label>Пользователь</label></td>
+            <td>
+                <select name="emailUser">
+                    <div th:each="element: ${users}">
+                        <option th:text="${element.emailUser}"></option>
+                    </div>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" class="glow-button" value="Изменить"/>
+    <div th:if="${#fields.hasErrors('numberOrder')}" th:errors="*{numberOrder}">f</div>
+</form>
+</body>
+</html>

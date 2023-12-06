@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Просмотр данных</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+    <ul>
+        <li><a href="/main">Главная страница</a></li>
+        <li><a href="Users/ProductCatalog">Каталог товаров</a></li>
+        <li><a href="Users/Order">Заказы</a></li>
+        <li><a href="Warehouse/Product">Товары</a></li>
+        <li><a href="Warehouse/ProviderCRUD">Поставщики</a></li>
+        <li><a href="Warehouse/CategoryProduct">Категории товаров</a></li>
+        <li><a href="Admin/Country">Страны</a></li>
+        <li><a href="Admin/AllView">Просмотр данных</a></li>
+        <li><a href="Admin/UserCRUD">Пользователи</a></li>
+        <li><a href="Admin/Role">Роли</a></li>
+        <li><a href="Admin/StatusOrder">Статусы заказов</a></li>
+    </ul>
+</head>
+<body>
+<h1>Поставщики</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Код поставщика</th>
+        <th>Название поставщика</th>
+        <th>Страна</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div th:each="providers: ${provider}">
+        <tr>
+            <td th:text="${providers.idProvider}"></td>
+            <td th:text="${providers.nameProvider}"></td>
+            <td th:text="${providers.countries.nameCountry}"></td>
+        </tr>
+    </div>
+    </tbody>
+</table>
+<h1>Категории товаров</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Код категории товаров</th>
+        <th>Название категории товаров</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div th:each="categoryProduct: ${categoryProduct}">
+        <tr>
+            <td th:text="${categoryProduct.idCategoryProduct}"></td>
+            <td th:text="${categoryProduct.nameCategoryProduct}"></td>
+        </tr>
+    </div>
+    </tbody>
+</table>
+<h1>Товары</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Код товара</th>
+        <th>Название товара</th>
+        <th>Стоимость товара</th>
+        <th>Категория товара</th>
+        <th>Поставщик</th>
+        <th>Статус товара</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div th:each="products: ${product}">
+
+        <tr>
+            <td th:text="${products.getIdProduct()}"></td>
+            <td th:text="${products.getNameProduct()}"></td>
+            <td th:text="${products.getPriceProduct()}"></td>
+            <td th:text="${products.categoryProduct.getNameCategoryProduct()}"></td>
+            <td  th:text="${products.provider.getNameProvider()}"></td>
+            <td  th:text="${products.statusProduct.getNameStatusProduct()}"></td>
+        </tr>
+
+    </div>
+    </tbody>
+
+</table>
+<h1>Заказы</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Код заказа</th>
+        <th>Стоимость заказа</th>
+        <th>Номер заказа</th>
+        <th>Статус заказа</th>
+        <th>Пользователь</th>
+        <th>Дата оформления заказа</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div th:each="order: ${orders}">
+        <tr>
+            <td th:text="${order.idOrder}"></td>
+            <td th:text="${order.priceOrder}"></td>
+            <td th:text="${order.numberOrder}"></td>
+            <td th:text="${order.statusOrder.nameStatusOrder}"></td>
+            <td th:text="${order.users.emailUser}"></td>
+            <td th:text="${order.dateOrder}"></td>
+        </tr>
+    </div>
+    </tbody>
+</table>
+<!--<h1>Состав заказов</h1>-->
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Код состава заказа</th>-->
+<!--        <th>Номер заказа</th>-->
+<!--        <th>Товар</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <div th:each="orderLists: ${ordersList}">-->
+<!--        <tr>-->
+<!--            <td th:text="${orderLists.idOrderList}"></td>-->
+<!--            <td th:text="${orderLists.orders.numberOrder}"></td>-->
+<!--            <td th:text="${orderLists.product.nameProduct}"></td>-->
+<!--        </tr>-->
+<!--    </div>-->
+<!--    </tbody>-->
+<!--</table>-->
+<h1>Статус товаров</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Код статусов товаров</th>
+        <th>Название статуса</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div th:each="statusProducts: ${statusProduct}">
+        <tr>
+            <td th:text="${statusProducts.idStatusProduct}"></td>
+            <td th:text="${statusProducts.nameStatusProduct}"></td>
+        </tr>
+    </div>
+    </tbody>
+</table>
+</body>
+</html>

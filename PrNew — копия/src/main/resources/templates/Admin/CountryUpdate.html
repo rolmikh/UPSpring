@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновление страны</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<form th:method="POST" th:action="@{/Admin/CountryUpdate/{id}(id = ${countries.idCountry})}" th:object="${countries}">
+    <table>
+        <tr>
+            <td><input type="hidden" th:field="*{idCountry}" id="idCountry" name="idCountry" />
+                <label for="nameCountry">Название страны</label></td>
+            <td> <input type="text" th:field="*{nameCountry}" id="nameCountry" name="nameCountry" /></td>
+        </tr>
+    </table>
+    <input type="submit" class="glow-button" value="Изменить"/>
+    <div th:if="${#fields.hasErrors('nameCountry')}" th:errors="*{nameCountry}">f</div>
+</form>
+</body>
+</html>

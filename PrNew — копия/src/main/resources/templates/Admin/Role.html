@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Роль</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+    <ul>
+        <li><a href="/main">Главная страница</a></li>
+        <li><a href="Users/ProductCatalog">Каталог товаров</a></li>
+        <li><a href="Users/Order">Заказы</a></li>
+        <li><a href="Warehouse/Product">Товары</a></li>
+        <li><a href="Warehouse/ProviderCRUD">Поставщики</a></li>
+        <li><a href="Warehouse/CategoryProduct">Категории товаров</a></li>
+        <li><a href="Admin/Country">Страны</a></li>
+        <li><a href="Admin/AllView">Просмотр данных</a></li>
+        <li><a href="Admin/UserCRUD">Пользователи</a></li>
+        <li><a href="Admin/Role">Роли</a></li>
+        <li><a href="Admin/StatusOrder">Статусы заказов</a></li>
+    </ul>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Код роли</th>
+        <th>Название роли</th>
+        <th>Роль</th>
+        <th>Изменить</th>
+        <th>Удалить</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div th:each="roles: ${role}">
+
+        <tr>
+            <td th:text="${roles.idRole}"></td>
+            <td th:text="${roles.nameRole}"></td>
+            <td th:text="${roles.role}"></td>
+            <td>
+                <a th:href="@{/Admin/{id}/RoleUpdate(id = ${roles.getIdRole()})}">
+                    <button class="glow-button">Изменить</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/Admin/Role/{id}(id = ${roles.idRole})}">
+                    <button class="glow-button">Удалить</button>
+                </a>
+            </td>
+        </tr>
+
+    </div>
+    </tbody>
+</table>
+
+<a href="/Admin/RoleNew">
+    <button type="submit" class="glow-button">Добавить</button>
+</a>
+</body>
+</html>

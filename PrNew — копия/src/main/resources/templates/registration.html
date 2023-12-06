@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<main class="main">
+    <div th:if="${message}">
+        Пользователь уже существует
+    </div>
+    <div class="form_auto">
+        <form th:action="@{/registration}" th:method="POST" th:object="${users}">
+            <label class="autorizationLabel" for="surname">Введите фамилию</label>
+            <input class="autorizationInput" placeholder="Введите фамилию" th:field="*{surname}" id="surname" type="text"/>
+            </br>
+            <label class="autorizationLabel" for="firstName">Введите имя</label>
+            <input class="autorizationInput" placeholder="Введите имя" th:field="*{firstName}" id="firstName" type="text"/>
+            </br>
+            <label class="autorizationLabel" for="middleName">Введите отчество</label>
+            <input class="autorizationInput" placeholder="Введите отчество" th:field="*{middleName}" id="middleName" type="text"/>
+            </br>
+            <label class="autorizationLabel" for="emailUser">Введите электронную почту</label>
+            <input class="autorizationInput" placeholder="Введите электронную почту" th:field="*{emailUser}" id="emailUser" type="email"/>
+            </br>
+            <label class="autorizationLabel" for="passwordUser">Введите пароль</label>
+            <input class="autorizationInput" placeholder="Введите пароль" th:field="*{passwordUser}" id="passwordUser" type="text"/>
+            </br>
+            <input type="submit" class="glow-button" value="Регистрация"/>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

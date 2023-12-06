@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление роли</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<form method="post" th:action="@{/Admin/Role}" th:object="${newRole}">
+    <table>
+        <tr>
+            <td> <label for="nameRole">Название роли</label></td>
+            <td> <input type="text" th:field="*{nameRole}" id="nameRole" name="nameRole" /></td>
+        </tr>
+    </table>
+    <input type="submit" class="glow-button" value="Добавить"/>
+    <div th:if="${#fields.hasErrors('nameRole')}" th:errors="*{nameRole}">f</div>
+</form>
+</body>
+</html>

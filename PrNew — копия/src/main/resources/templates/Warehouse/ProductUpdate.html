@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновление товара</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<form th:method="POST" th:action="@{/Warehouse/ProductUpdate/{id}(id = ${product.idProduct})}" th:object="${product}">
+    <table>
+        <tr>
+            <td> <input  type="hidden" id="idProduct" name="idProduct" th:field="*{idProduct}"/>
+                <label for="nameProduct">Название товара</label></td>
+            <td> <input type="text" th:field="*{nameProduct}" id="nameProduct" name="nameProduct" /></td>
+        </tr>
+        <tr>
+            <td> <label for="priceProduct">Цена товара</label></td>
+            <td> <input type="text" th:field="*{priceProduct}" id="priceProduct" name="priceProduct" /></td>
+        </tr>
+        <tr>
+            <td> <label for="countProduct">Количество товара</label></td>
+            <td> <input type="text" th:field="*{countProduct}" id="countProduct" name="countProduct" /></td>
+        </tr>
+        <tr>
+            <td> <label>Категория товара</label></td>
+            <td>
+                <select name="nameCategoryProduct">
+                    <div th:each="element: ${categories}">
+                        <option th:text="${element.nameCategoryProduct}"></option>
+                    </div>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> <label>Поставщик</label></td>
+            <td>
+                <select name="nameProvider">
+                    <div th:each="element: ${providers}">
+                        <option th:text="${element.nameProvider}"></option>
+                    </div>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> <label>Статус товара</label></td>
+            <td>
+                <select name="nameStatusProduct">
+                    <div th:each="element: ${statusProduct}">
+                        <option th:text="${element.nameStatusProduct}"></option>
+                    </div>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" class="glow-button" value="Изменить"/>
+    <div th:if="${#fields.hasErrors('nameProduct')}" th:errors="*{nameProduct}">f</div>
+</form>
+</body>
+</html>

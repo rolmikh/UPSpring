@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение данных пользователя</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<form th:method="POST" th:action="@{/Admin/UserUpdate/{id}(id = ${users.idUsers})}" th:object="${users}">
+    <table>
+        <tr>
+            <td> <input  type="hidden" id="idUsers" th:field="*{idUsers}"/>
+                <label for="surname">Введите фамилию</label></td>
+            <td><input type="text" th:field="*{surname}" id="surname" /></td>
+        </tr>
+        <tr>
+            <td> <label for="firstName">Введите имя</label></td>
+            <td><input type="text" th:field="*{firstName}" id="firstName" /></td>
+        </tr>
+        <tr>
+            <td><label for="middleName">Введите отчество</label></td>
+            <td><input type="text" th:field="*{middleName}" id="middleName" /></td>
+        </tr>
+        <tr>
+            <td><label for="emailUser">Введите электронную почту</label></td>
+            <td><input type="text" th:field="*{emailUser}" id="emailUser" /></td>
+        </tr>
+        <tr>
+            <td> <label for="passwordUser">Введите пароль</label></td>
+            <td><input type="text" th:field="*{passwordUser}" id="passwordUser" /></td>
+        </tr>
+        <tr>
+            <td><label>Выберите роль</label></td>
+            <td>
+                <select name="role">
+                    <div th:each="element: ${role}">
+                        <option th:text="${element.role}"></option>
+                    </div>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" class="glow-button" value="Изменить"/>
+    <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"/>
+    <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
+    <span th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"/>
+    <span th:if="${#fields.hasErrors('emailUser')}" th:errors="*{emailUser}"/>
+    <span th:if="${#fields.hasErrors('passwordUser')}" th:errors="*{passwordUser}"/>
+
+</form>
+
+</body>
+</html>

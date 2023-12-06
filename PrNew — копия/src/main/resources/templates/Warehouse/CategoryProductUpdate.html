@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновление категории товара</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<form th:method="POST" th:action="@{/Warehouse/CategoryProductUpdate/{id}(id = ${categoryProduct.idCategoryProduct})}" th:object="${categoryProduct}">
+    <table>
+        <tr>
+            <td> <input  type="hidden" id="idCategoryProduct" name="idCategoryProduct" th:field="*{idCategoryProduct}"/>
+            <label for="nameCategoryProduct">Название категории</label></td>
+            <td> <input type="text" th:field="*{nameCategoryProduct}" id="nameCategoryProduct" name="nameCategoryProduct" /></td>
+        </tr>
+    </table>
+    <input type="submit" class="glow-button" value="Изменить"/>
+    <div th:if="${#fields.hasErrors('nameCategoryProduct')}" th:errors="*{nameCategoryProduct}">f</div>
+</form>
+</body>
+</html>

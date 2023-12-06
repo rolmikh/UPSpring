@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+    <ul>
+        <li><a href="/main">Главная страница</a></li>
+        <li><a href="Users/ProductCatalog">Каталог товаров</a></li>
+        <li><a href="Users/Order">Заказы</a></li>
+        <li><a href="Warehouse/Product">Товары</a></li>
+        <li><a href="Warehouse/ProviderCRUD">Поставщики</a></li>
+        <li><a href="Warehouse/CategoryProduct">Категории товаров</a></li>
+        <li><a href="Admin/Country">Страны</a></li>
+        <li><a href="Admin/AllView">Просмотр данных</a></li>
+        <li><a href="Admin/UserCRUD">Пользователи</a></li>
+        <li><a href="Admin/Role">Роли</a></li>
+        <li><a href="Admin/StatusOrder">Статусы заказов</a></li>
+    </ul>
+</head>
+<body>
+<main class="main">
+    <table>
+        <thead>
+        <tr>
+            <th>Код пользователя</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Электронная почта</th>
+            <th>Роль</th>
+            <th>Статус активности</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <div th:each="user: ${users}">
+
+            <tr>
+                <td th:text="${user.idUsers}"></td>
+                <td th:text="${user.surname}"></td>
+                <td th:text="${user.firstName}"></td>
+                <td  th:text="${user.middleName}"></td>
+                <td  th:text="${user.emailUser}"></td>
+                <td  th:text="${user.roleID.nameRole}"></td>
+                <td  th:text="${user.active} == true ? 'Активный' : 'Неактивный'"></td>
+                <td>
+                    <a th:href="@{/Admin/{id}/UserUpdate(id = ${user.getIdUsers()})}">
+                        <button class="glow-button">Изменить</button>
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{/Admin/UserCRUD/{id}(id = ${user.idUsers})}">
+                        <button class="glow-button">Удалить</button>
+                    </a>
+                </td>
+            </tr>
+        </div>
+        </tbody>
+    </table>
+    <a href="/Admin/UserNew">
+        <button type="submit" class="glow-button">Добавить</button>
+    </a>
+</main>
+
+</body>
+</html>

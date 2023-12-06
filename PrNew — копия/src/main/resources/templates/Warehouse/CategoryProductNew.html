@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление категории товара</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<form method="post" th:action="@{/Warehouse/CategoryProduct}" th:object="${newCategoryProduct}">
+    <table>
+        <tr>
+            <td> <label for="nameCategoryProduct">Название категории</label></td>
+            <td> <input type="text" th:field="*{nameCategoryProduct}" id="nameCategoryProduct" name="nameCategoryProduct" /></td>
+        </tr>
+    </table>
+    <input type="submit" class="glow-button" value="Добавить"/>
+    <div th:if="${#fields.hasErrors('nameCategoryProduct')}" th:errors="*{nameCategoryProduct}">f</div>
+</form>
+</body>
+</html>

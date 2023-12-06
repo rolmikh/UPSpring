@@ -1,0 +1,131 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5FB49C;
+}
+li {
+    float: left;
+    border-right: 1px solid white;
+}
+li a{
+    display: block;
+    color: white;
+    text-align:center;
+    padding: 14px 16px;
+    text-decoration:none;
+}
+li a:hover{
+    background-color: #fff;
+    color:#5FB49C;
+}
+
+.glow-button {
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 20px;
+    width: 250px;
+    height: 45px;
+    text-align:center;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px #A23E48 inset, 0 0 0 0 #A23E48;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white;
+    transition: .15s ease-in-out;
+}
+
+
+.glow-button:hover {
+    box-shadow: 0 0 10px 0 #A23E48 inset, 0 0 10px 4px #A23E48;
+    color: #A23E48;
+
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+table th {
+    font-weight: bold;
+    padding: 5px;
+    background: #A23E48;
+    border: 1px solid #dddddd;
+}
+table td {
+    border: 1px solid #dddddd;
+    padding: 5px;
+}
+
+Input {
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+
+Input:hover {
+    box-shadow: 0 0 10px 0 #A23E48 inset, 0 0 10px 4px #A23E48;
+    color: #A23E48;
+}
+
+
+.autorizationInput {
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+
+.autorizationInput:hover {
+    box-shadow: 0 0 10px 0 #A23E48 inset, 0 0 10px 4px #A23E48;
+    color: #A23E48;
+}
+
+.form_auto {
+    font-family: 'Courier New', Courier, monospace;
+    width: 900px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top:100px;
+    text-align: center;
+}
+
+.autorizationLabel {
+    display: inline-block;
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-top:10px;
+    margin-bottom:10px;
+    width: 300px;
+}
+
+.main {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+select {
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+
+select:hover {
+    box-shadow: 0 0 10px 0 #A23E48 inset, 0 0 10px 4px #A23E48;
+    color: #A23E48;
+}

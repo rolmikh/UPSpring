@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновление поставщика</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<form th:method="POST" th:action="@{/Warehouse/ProviderUpdate/{id}(id = ${provider.idProvider})}" th:object="${provider}">
+    <table>
+
+        <tr>
+            <td> <input  type="hidden" id="idProvider" name="idProvider" th:field="*{idProvider}"/>
+                <label for="nameProvider">Название поставщика</label></td>
+            <td> <input type="text" th:field="*{nameProvider}" id="nameProvider" name="nameProvider" /></td>
+        </tr>
+        <tr>
+            <td> <label>Страна</label></td>
+            <td>
+                <select name="idCountry">
+                    <div th:each="country : ${countries}">
+                        <option th:text="${country.NameCountry}"></option>
+                    </div>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" class="glow-button" value="Изменить"/>
+    <div th:if="${#fields.hasErrors('nameProvider')}" th:errors="*{nameProvider}">f</div>
+</form>
+</body>
+</html>

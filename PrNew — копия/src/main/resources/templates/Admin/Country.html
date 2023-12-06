@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Страны</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+    <ul>
+        <li><a href="/main">Главная страница</a></li>
+        <li><a href="Users/ProductCatalog">Каталог товаров</a></li>
+        <li><a href="Users/Order">Заказы</a></li>
+        <li><a href="Warehouse/Product">Товары</a></li>
+        <li><a href="Warehouse/ProviderCRUD">Поставщики</a></li>
+        <li><a href="Warehouse/CategoryProduct">Категории товаров</a></li>
+        <li><a href="Admin/Country">Страны</a></li>
+        <li><a href="Admin/AllView">Просмотр данных</a></li>
+        <li><a href="Admin/UserCRUD">Пользователи</a></li>
+        <li><a href="Admin/Role">Роли</a></li>
+        <li><a href="Admin/StatusOrder">Статусы заказов</a></li>
+    </ul>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Код страны</th>
+        <th>Страна</th>
+        <th>Изменить</th>
+        <th>Удалить</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div th:each="counutry: ${country}">
+
+        <tr>
+            <td th:text="${counutry.idCountry}"></td>
+            <td th:text="${counutry.nameCountry}"></td>
+            <td>
+                <a th:href="@{/Admin/{id}/CountryUpdate(id = ${counutry.getIdCountry()})}">
+                    <button class="glow-button">Изменить</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/Admin/Country/{id}(id = ${counutry.idCountry})}">
+                    <button class="glow-button">Удалить</button>
+                </a>
+            </td>
+        </tr>
+
+    </div>
+    </tbody>
+</table>
+<a href="/Admin/CountryNew">
+    <button type="submit" class="glow-button">Добавить</button>
+</a>
+</body>
+</html>

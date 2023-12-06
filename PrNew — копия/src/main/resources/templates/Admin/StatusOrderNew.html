@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление статуса заказа</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<form method="post" th:action="@{/Admin/StatusOrder}" th:object="${newStatusOrder}">
+    <table>
+        <tr>
+            <td> <label for="nameStatusOrder">Название статуса</label></td>
+            <td> <input type="text" th:field="*{nameStatusOrder}" id="nameStatusOrder" name="nameStatusOrder" /></td>
+        </tr>
+    </table>
+    <input type="submit" class="glow-button" value="Добавить"/>
+    <div th:if="${#fields.hasErrors('nameStatusOrder')}" th:errors="*{nameStatusOrder}">f</div>
+</form>
+</body>
+</html>

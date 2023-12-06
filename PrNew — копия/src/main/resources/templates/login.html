@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link rel="stylesheet" th:href="@{/stil.css}">
+</head>
+<body>
+<main class="main">
+    <div th:if="${param.error}">
+        Неверная электронная почта пользователя или пароль.
+    </div>
+    <div class="form_auto">
+        <form th:action="@{/login}" method="post">
+            <label class="autorizationLabel"> Электронная почта</label>
+            <input class="autorizationInput" type="text" name="Email_User"/>
+            <br />
+            <label class="autorizationLabel"> Пароль</label>
+            <input class="autorizationInput" type="password" name="Password_User"/>
+            <br />
+            <input type="submit" class="glow-button" value="Авторизация"/>
+        </form>
+        <a href="/registration"><button class="glow-button">Регистрация</button></a>
+    </div>
+</main>
+
+</body>
+</html>
